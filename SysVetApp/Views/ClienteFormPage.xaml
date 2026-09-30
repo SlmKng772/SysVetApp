@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:c="clr-namespace:SysVetApp.Components"
+             x:Class="SysVetApp.Views.ClienteFormPage"
+             Title="Cliente"
+             BackgroundColor="{StaticResource CorFundo}">
+
+    <Grid RowDefinitions="*,Auto" Padding="16" RowSpacing="12">
+
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Spacing="0">
+
+                <Label x:Name="lblTitulo"
+                       Text="Novo Cliente"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource CorPrimaria}"
+                       Margin="0,0,0,16" />
+
+                <c:CampoTexto x:Name="campoNome"
+                              Titulo="Nome do cliente *"
+                              Dica="Ex.: Maria Souza"
+                              TamanhoMaximo="50" />
+
+                <c:CampoTexto x:Name="campoCpf"
+                              Titulo="CPF *"
+                              Dica="Ex.: 123.456.789-01"
+                              TamanhoMaximo="14"
+                              TipoTeclado="Numerico" />
+
+                <c:CampoTexto x:Name="campoEmail"
+                              Titulo="E-mail *"
+                              Dica="Ex.: maria@email.com"
+                              TamanhoMaximo="100"
+                              TipoTeclado="Email" />
+
+                <!-- clidatacadastro: não é digitada, o sistema preenche sozinho -->
+                <Label x:Name="lblDataCadastro"
+                       Text="Data de cadastro: será preenchida com a data de hoje ao salvar."
+                       FontSize="12"
+                       TextColor="{StaticResource CorTextoMedio}"
+                       Margin="0,0,0,12" />
+
+                <Label Text="* campos obrigatórios"
+                       FontSize="11"
+                       TextColor="{StaticResource CorTextoFraco}" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,*" ColumnSpacing="8">
+            <Button Grid.Column="0"
+                    Text="CANCELAR"
+                    FontSize="13"
+                    BackgroundColor="{StaticResource CorCancelar}"
+                    TextColor="White"
+                    CornerRadius="8"
+                    HeightRequest="48"
+                    Clicked="OnCancelarClicked" />
+
+            <Button Grid.Column="1"
+                    Text="SALVAR"
+                    FontSize="13"
+                    BackgroundColor="{StaticResource CorSucesso}"
+                    TextColor="White"
+                    CornerRadius="8"
+                    HeightRequest="48"
+                    Clicked="OnSalvarClicked" />
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

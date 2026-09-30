@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SysVetApp.Components.CampoData"
+             x:Name="raiz">
+
+    <!--
+        COMPONENTIZAÇÃO.
+        Rótulo + seletor de data. É o campo que faltava em relação ao projeto
+        de referência, porque o diagrama da veterinária tem datas
+        (anidatanasc em tblanimais e clidatacadastro em tblclientes).
+    -->
+    <VerticalStackLayout Spacing="4" Margin="0,0,0,12">
+
+        <Label Text="{Binding Titulo, Source={x:Reference raiz}}"
+               FontSize="13"
+               FontAttributes="Bold"
+               TextColor="{StaticResource CorPrimaria}" />
+
+        <Border Stroke="{StaticResource CorBordaCampo}"
+                StrokeThickness="1"
+                BackgroundColor="{StaticResource CorCampoFundo}"
+                Padding="10,0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="8" />
+            </Border.StrokeShape>
+
+            <DatePicker x:Name="seletorData"
+                        Date="{Binding Data, Source={x:Reference raiz}, Mode=TwoWay}"
+                        Format="dd/MM/yyyy"
+                        FontSize="15"
+                        TextColor="{StaticResource CorTexto}"
+                        BackgroundColor="Transparent" />
+        </Border>
+
+    </VerticalStackLayout>
+
+</ContentView>

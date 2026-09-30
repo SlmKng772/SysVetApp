@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!--
+        ================================================================
+        PALETA DO SysVetApp — "verde-clínica" (turquesa)
+        ================================================================
+        TODAS as cores do sistema estão neste arquivo.
+        Para trocar o tema do app inteiro, mude só os valores daqui:
+        nenhuma tela precisa ser tocada, porque as telas usam
+        {StaticResource CorXxx} em vez de escrever o código da cor.
+
+        Note: no Android veja também Platforms\Android\Resources\values\colors.xml
+        ================================================================
+    -->
+
+    <!-- Cores da marca -->
+    <Color x:Key="CorPrimaria">#0E6E62</Color>          <!-- títulos, rótulos de campo, botão ALTERAR -->
+    <Color x:Key="CorPrimariaEscura">#0A544A</Color>    <!-- cabeçalho do menu lateral -->
+    <Color x:Key="CorSucesso">#149E7C</Color>           <!-- botões INSERIR e SALVAR -->
+    <Color x:Key="CorPerigo">#CC4B57</Color>            <!-- botão EXCLUIR -->
+    <Color x:Key="CorCancelar">#8A95A5</Color>          <!-- botão CANCELAR -->
+
+    <!-- Superfícies -->
+    <Color x:Key="CorFundo">#F2F7F5</Color>             <!-- fundo das telas -->
+    <Color x:Key="CorCard">#FFFFFF</Color>              <!-- cartões das listas -->
+    <Color x:Key="CorCampoFundo">#FBFDFC</Color>        <!-- fundo das caixas de texto -->
+    <Color x:Key="CorMenuRodape">#EAF2EF</Color>        <!-- rodapé do menu lateral -->
+    <Color x:Key="CorMenuTextoSuave">#BFE0D8</Color>    <!-- subtítulo do cabeçalho do menu -->
+
+    <!-- Bordas -->
+    <Color x:Key="CorBorda">#D9E5E1</Color>             <!-- borda dos cartões -->
+    <Color x:Key="CorBordaCampo">#C6D8D3</Color>        <!-- borda dos campos -->
+
+    <!-- Textos -->
+    <Color x:Key="CorTexto">#16241F</Color>             <!-- texto principal -->
+    <Color x:Key="CorTextoMedio">#4E6A63</Color>        <!-- subtítulos -->
+    <Color x:Key="CorTextoSecundario">#758D86</Color>   <!-- detalhes dos cartões -->
+    <Color x:Key="CorTextoFraco">#A2B4AF</Color>        <!-- dicas e placeholders -->
+
+    <!--
+        ================================================================
+        Cores do template do .NET MAUI.
+        O arquivo Styles.xaml usa estes nomes (Primary, Gray100, ...).
+        Os valores abaixo repetem a paleta acima de propósito, para o
+        app inteiro — inclusive as abas — seguir a mesma identidade.
+        ================================================================
+    -->
+    <Color x:Key="Primary">#0E6E62</Color>
+    <Color x:Key="PrimaryDark">#8FD5C9</Color>
+    <Color x:Key="PrimaryDarkText">#16241F</Color>
+    <Color x:Key="Secondary">#D7EDE8</Color>
+    <Color x:Key="SecondaryDarkText">#7FC7BA</Color>
+    <Color x:Key="Tertiary">#0A544A</Color>
+
+    <Color x:Key="White">White</Color>
+    <Color x:Key="Black">Black</Color>
+    <Color x:Key="Magenta">#149E7C</Color>
+    <Color x:Key="MidnightBlue">#0A3A34</Color>
+    <Color x:Key="OffBlack">#17211F</Color>
+
+    <Color x:Key="Gray100">#E1E1E1</Color>
+    <Color x:Key="Gray200">#C8C8C8</Color>
+    <Color x:Key="Gray300">#ACACAC</Color>
+    <Color x:Key="Gray400">#919191</Color>
+    <Color x:Key="Gray500">#6E6E6E</Color>
+    <Color x:Key="Gray600">#404040</Color>
+    <Color x:Key="Gray900">#212121</Color>
+    <Color x:Key="Gray950">#141414</Color>
+
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
+    <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
+    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
+    <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
+
+    <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}"/>
+    <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}"/>
+    <SolidColorBrush x:Key="Gray300Brush" Color="{StaticResource Gray300}"/>
+    <SolidColorBrush x:Key="Gray400Brush" Color="{StaticResource Gray400}"/>
+    <SolidColorBrush x:Key="Gray500Brush" Color="{StaticResource Gray500}"/>
+    <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
+    <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
+    <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
+</ResourceDictionary>

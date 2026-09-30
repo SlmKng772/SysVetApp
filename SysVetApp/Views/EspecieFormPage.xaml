@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:c="clr-namespace:SysVetApp.Components"
+             x:Class="SysVetApp.Views.EspecieFormPage"
+             Title="Espécie"
+             BackgroundColor="{StaticResource CorFundo}">
+
+    <Grid RowDefinitions="*,Auto" Padding="16" RowSpacing="12">
+
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Spacing="0">
+
+                <Label x:Name="lblTitulo"
+                       Text="Nova Espécie"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource CorPrimaria}"
+                       Margin="0,0,0,16" />
+
+                <!-- Aqui está a componentização: o mesmo CampoTexto reaproveitado -->
+                <c:CampoTexto x:Name="campoNome"
+                              Titulo="Nome da espécie *"
+                              Dica="Ex.: Canina"
+                              TamanhoMaximo="50" />
+
+                <Label Text="* campos obrigatórios"
+                       FontSize="11"
+                       TextColor="{StaticResource CorTextoFraco}" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,*" ColumnSpacing="8">
+            <Button Grid.Column="0"
+                    Text="CANCELAR"
+                    FontSize="13"
+                    BackgroundColor="{StaticResource CorCancelar}"
+                    TextColor="White"
+                    CornerRadius="8"
+                    HeightRequest="48"
+                    Clicked="OnCancelarClicked" />
+
+            <Button Grid.Column="1"
+                    Text="SALVAR"
+                    FontSize="13"
+                    BackgroundColor="{StaticResource CorSucesso}"
+                    TextColor="White"
+                    CornerRadius="8"
+                    HeightRequest="48"
+                    Clicked="OnSalvarClicked" />
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

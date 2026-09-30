@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="SysVetApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:SysVetApp.Views"
+    Title="SysVetApp"
+    FlyoutBehavior="Flyout"
+    FlyoutBackgroundColor="{StaticResource CorCard}">
+
+    <!--
+        ============================================================
+        CABEÇALHO DO MENU (FlyoutHeader)
+        Aparece no topo do menu lateral quando você desliza da esquerda
+        ou toca no ícone de "hambúrguer".
+        ============================================================
+    -->
+    <Shell.FlyoutHeader>
+        <Grid BackgroundColor="{StaticResource CorPrimariaEscura}" HeightRequest="170" Padding="20">
+            <VerticalStackLayout VerticalOptions="Center" Spacing="4">
+                <!-- A patinha fica dentro de um "chip" branco para aparecer
+                     bem tanto no Android quanto no Windows -->
+                <Border BackgroundColor="White"
+                        StrokeThickness="0"
+                        WidthRequest="54"
+                        HeightRequest="54"
+                        HorizontalOptions="Start"
+                        Margin="0,0,0,6">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="16" />
+                    </Border.StrokeShape>
+                    <Label Text="🐾"
+                           FontSize="26"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                </Border>
+                <Label Text="SysVetApp"
+                       TextColor="White"
+                       FontSize="22"
+                       FontAttributes="Bold" />
+                <Label Text="Sistema Veterinário"
+                       TextColor="{StaticResource CorMenuTextoSuave}"
+                       FontSize="12" />
+            </VerticalStackLayout>
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <!--
+        ============================================================
+        ITENS DO MENU + TABBAR
+        Truque importante: as quatro <Tab> estão DENTRO de um único
+        <FlyoutItem>. Isso faz com que:
+          - apareçam como BOTÕES na barra inferior (TabBar), porque
+            pertencem ao mesmo item de navegação; e
+          - apareçam como OPÇÕES SEPARADAS no menu lateral, por causa
+            do FlyoutDisplayOptions="AsMultipleItems".
+        Ou seja: um código só atende os dois requisitos.
+        ============================================================
+    -->
+    <FlyoutItem Title="Funcionalidades"
+                FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab Title="Início" Route="home">
+            <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
+        </Tab>
+
+        <Tab Title="Espécies" Route="especies">
+            <ShellContent ContentTemplate="{DataTemplate views:EspeciesPage}" />
+        </Tab>
+
+        <Tab Title="Animais" Route="animais">
+            <ShellContent ContentTemplate="{DataTemplate views:AnimaisPage}" />
+        </Tab>
+
+        <Tab Title="Clientes" Route="clientes">
+            <ShellContent ContentTemplate="{DataTemplate views:ClientesPage}" />
+        </Tab>
+
+    </FlyoutItem>
+
+    <!-- Opções extras do menu, que não fazem parte da TabBar -->
+    <MenuItem Text="Sobre o sistema"
+              Clicked="OnSobreClicked" />
+
+    <MenuItem Text="Sair"
+              Clicked="OnSairClicked" />
+
+    <!--
+        ============================================================
+        RODAPÉ DO MENU (FlyoutFooter)
+        Troque "SEU NOME AQUI" pelo seu nome.
+        ============================================================
+    -->
+    <Shell.FlyoutFooter>
+        <Grid BackgroundColor="{StaticResource CorMenuRodape}" Padding="20,14">
+            <VerticalStackLayout Spacing="2">
+                <Label Text="Aluno: Gabriel Florencio de Souza"
+                       FontSize="12"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource CorPrimaria}" />
+                <Label Text="RA: 2507896"
+                       FontSize="11"
+                       TextColor="{StaticResource CorTextoSecundario}" />
+                <Label Text="Versão 1.0 — 2026"
+                       FontSize="11"
+                       TextColor="{StaticResource CorTextoSecundario}" />
+            </VerticalStackLayout>
+        </Grid>
+    </Shell.FlyoutFooter>
+
+</Shell>

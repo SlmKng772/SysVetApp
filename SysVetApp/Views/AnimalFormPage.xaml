@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:c="clr-namespace:SysVetApp.Components"
+             x:Class="SysVetApp.Views.AnimalFormPage"
+             Title="Animal"
+             BackgroundColor="{StaticResource CorFundo}">
+
+    <Grid RowDefinitions="*,Auto" Padding="16" RowSpacing="12">
+
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Spacing="0">
+
+                <Label x:Name="lblTitulo"
+                       Text="Novo Animal"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource CorPrimaria}"
+                       Margin="0,0,0,16" />
+
+                <c:CampoTexto x:Name="campoNome"
+                              Titulo="Nome do animal *"
+                              Dica="Ex.: Rex"
+                              TamanhoMaximo="50" />
+
+                <c:CampoTexto x:Name="campoApelido"
+                              Titulo="Apelido"
+                              Dica="Ex.: Rexinho"
+                              TamanhoMaximo="25" />
+
+                <c:CampoData x:Name="campoDataNasc"
+                             Titulo="Data de nascimento *"
+                             PermitirFuturo="False" />
+
+                <!-- As duas chaves estrangeiras do diagrama, escolhidas em lista -->
+                <c:CampoSelecao x:Name="campoEspecie"
+                                Titulo="Espécie *"
+                                Dica="Toque para escolher a espécie"
+                                CampoExibicao="EspNome" />
+
+                <c:CampoSelecao x:Name="campoCliente"
+                                Titulo="Cliente (tutor) *"
+                                Dica="Toque para escolher o cliente"
+                                CampoExibicao="CliNome" />
+
+                <c:CampoTexto x:Name="campoObservacoes"
+                              Titulo="Observações"
+                              Dica="Vacinas, alergias, retornos..."
+                              TamanhoMaximo="500"
+                              Multilinha="True" />
+
+                <Label Text="* campos obrigatórios"
+                       FontSize="11"
+                       TextColor="{StaticResource CorTextoFraco}" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,*" ColumnSpacing="8">
+            <Button Grid.Column="0"
+                    Text="CANCELAR"
+                    FontSize="13"
+                    BackgroundColor="{StaticResource CorCancelar}"
+                    TextColor="White"
+                    CornerRadius="8"
+                    HeightRequest="48"
+                    Clicked="OnCancelarClicked" />
+
+            <Button Grid.Column="1"
+                    Text="SALVAR"
+                    FontSize="13"
+                    BackgroundColor="{StaticResource CorSucesso}"
+                    TextColor="White"
+                    CornerRadius="8"
+                    HeightRequest="48"
+                    Clicked="OnSalvarClicked" />
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:SysVetApp.Models"
+             x:Class="SysVetApp.Views.EspeciesPage"
+             Title="Espécies"
+             BackgroundColor="{StaticResource CorFundo}">
+
+    <!-- Grid de 3 linhas: cabeçalho (auto), lista (*) e botões (auto) -->
+    <Grid RowDefinitions="Auto,*,Auto" Padding="16" RowSpacing="12">
+
+        <VerticalStackLayout Grid.Row="0" Spacing="2">
+            <Label Text="Cadastro de Espécies"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource CorPrimaria}" />
+            <Label x:Name="lblSituacao"
+                   Text="Toque em um registro para selecioná-lo."
+                   FontSize="12"
+                   TextColor="{StaticResource CorTextoMedio}" />
+        </VerticalStackLayout>
+
+        <!-- CollectionView é o componente de lista do MAUI (substitui o antigo ListView) -->
+        <CollectionView Grid.Row="1"
+                        x:Name="listaEspecies"
+                        SelectionMode="Single"
+                        SelectionChanged="OnSelecaoAlterada">
+
+            <CollectionView.EmptyView>
+                <Label Text="Nenhuma espécie cadastrada. Toque em INSERIR."
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       TextColor="{StaticResource CorTextoFraco}" />
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Especie">
+                    <Border Stroke="{StaticResource CorBorda}"
+                            BackgroundColor="{StaticResource CorCard}"
+                            Padding="14"
+                            Margin="0,0,0,8">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+                        <VerticalStackLayout Spacing="3">
+                            <Label Text="{Binding EspNome}"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource CorTexto}" />
+                            <Label Text="{Binding AnimaisTexto}"
+                                   FontSize="12"
+                                   TextColor="{StaticResource CorTextoSecundario}" />
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Os três botões do CRUD exigidos pelo enunciado (o "R" é a própria lista acima) -->
+        <Grid Grid.Row="2" ColumnDefinitions="*,*,*" ColumnSpacing="8">
+            <Button Grid.Column="0"
+                    Text="INSERIR"
+                    FontSize="13"
+                    BackgroundColor="{StaticResource CorSucesso}"
+                    TextColor="White"
+                    CornerRadius="8"
+                    HeightRequest="48"
+                    Clicked="OnInserirClicked" />
+
+            <Button Grid.Column="1"
+                    Text="ALTERAR"
+                    FontSize="13"
+                    BackgroundColor="{StaticResource CorPrimaria}"
+                    TextColor="White"
+                    CornerRadius="8"
+                    HeightRequest="48"
+                    Clicked="OnAlterarClicked" />
+
+            <Button Grid.Column="2"
+                    Text="EXCLUIR"
+                    FontSize="13"
+                    BackgroundColor="{StaticResource CorPerigo}"
+                    TextColor="White"
+                    CornerRadius="8"
+                    HeightRequest="48"
+                    Clicked="OnExcluirClicked" />
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

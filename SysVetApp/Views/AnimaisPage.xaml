@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:SysVetApp.Models"
+             x:Class="SysVetApp.Views.AnimaisPage"
+             Title="Animais"
+             BackgroundColor="{StaticResource CorFundo}">
+
+    <Grid RowDefinitions="Auto,*,Auto" Padding="16" RowSpacing="12">
+
+        <VerticalStackLayout Grid.Row="0" Spacing="2">
+            <Label Text="Cadastro de Animais"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource CorPrimaria}" />
+            <Label x:Name="lblSituacao"
+                   Text="Toque em um registro para selecioná-lo."
+                   FontSize="12"
+                   TextColor="{StaticResource CorTextoMedio}" />
+        </VerticalStackLayout>
+
+        <CollectionView Grid.Row="1"
+                        x:Name="listaAnimais"
+                        SelectionMode="Single"
+                        SelectionChanged="OnSelecaoAlterada">
+
+            <CollectionView.EmptyView>
+                <Label Text="Nenhum animal cadastrado. Toque em INSERIR."
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       TextColor="{StaticResource CorTextoFraco}" />
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Animal">
+                    <Border Stroke="{StaticResource CorBorda}"
+                            BackgroundColor="{StaticResource CorCard}"
+                            Padding="14"
+                            Margin="0,0,0,8">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+                        <VerticalStackLayout Spacing="3">
+
+                            <Label Text="{Binding AniNome}"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource CorTexto}" />
+
+                            <Label Text="{Binding ApelidoEEspecie}"
+                                   FontSize="13"
+                                   TextColor="{StaticResource CorPrimaria}" />
+
+                            <Label Text="{Binding ClienteNome, StringFormat='Tutor: {0}'}"
+                                   FontSize="12"
+                                   TextColor="{StaticResource CorTextoMedio}" />
+
+                            <Label Text="{Binding DataNascTexto, StringFormat='Nascimento: {0}'}"
+                                   FontSize="12"
+                                   TextColor="{StaticResource CorTextoSecundario}" />
+
+                            <Label Text="{Binding IdadeTexto, StringFormat='Idade: {0}'}"
+                                   FontSize="12"
+                                   TextColor="{StaticResource CorTextoSecundario}" />
+
+                            <Label Text="{Binding AnObservacoes}"
+                                   FontSize="12"
+                                   TextColor="{StaticResource CorTextoSecundario}"
+                                   MaxLines="2"
+                                   LineBreakMode="TailTruncation" />
+
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Grid Grid.Row="2" ColumnDefinitions="*,*,*" ColumnSpacing="8">
+            <Button Grid.Column="0"
+                    Text="INSERIR"
+                    FontSize="13"
+                    BackgroundColor="{StaticResource CorSucesso}"
+                    TextColor="White"
+                    CornerRadius="8"
+                    HeightRequest="48"
+                    Clicked="OnInserirClicked" />
+
+            <Button Grid.Column="1"
+                    Text="ALTERAR"
+                    FontSize="13"
+                    BackgroundColor="{StaticResource CorPrimaria}"
+                    TextColor="White"
+                    CornerRadius="8"
+                    HeightRequest="48"
+                    Clicked="OnAlterarClicked" />
+
+            <Button Grid.Column="2"
+                    Text="EXCLUIR"
+                    FontSize="13"
+                    BackgroundColor="{StaticResource CorPerigo}"
+                    TextColor="White"
+                    CornerRadius="8"
+                    HeightRequest="48"
+                    Clicked="OnExcluirClicked" />
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

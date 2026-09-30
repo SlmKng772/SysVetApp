@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SysVetApp.Components.CampoTexto"
+             x:Name="raiz">
+
+    <!--
+        COMPONENTIZAÇÃO.
+        Em vez de repetir "Label + Entry + Border" em cada campo de cada
+        formulário (seriam dezenas de blocos iguais), existe UM componente
+        reutilizado nos três cadastros.
+        Se o visual do campo mudar, muda aqui e reflete no app inteiro.
+    -->
+    <VerticalStackLayout Spacing="4" Margin="0,0,0,12">
+
+        <Label Text="{Binding Titulo, Source={x:Reference raiz}}"
+               FontSize="13"
+               FontAttributes="Bold"
+               TextColor="{StaticResource CorPrimaria}" />
+
+        <Border Stroke="{StaticResource CorBordaCampo}"
+                StrokeThickness="1"
+                BackgroundColor="{StaticResource CorCampoFundo}"
+                Padding="10,0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="8" />
+            </Border.StrokeShape>
+
+            <Grid>
+                <!-- Campo de uma linha (nome, e-mail, CPF...) -->
+                <Entry x:Name="entrada"
+                       Text="{Binding Texto, Source={x:Reference raiz}, Mode=TwoWay}"
+                       Placeholder="{Binding Dica, Source={x:Reference raiz}}"
+                       MaxLength="{Binding TamanhoMaximo, Source={x:Reference raiz}}"
+                       IsEnabled="{Binding Habilitado, Source={x:Reference raiz}}"
+                       FontSize="15"
+                       TextColor="{StaticResource CorTexto}"
+                       PlaceholderColor="{StaticResource CorTextoFraco}"
+                       BackgroundColor="Transparent" />
+
+                <!-- Campo de várias linhas (observações) — fica escondido até
+                     o atributo Multilinha="True" ser usado no XAML -->
+                <Editor x:Name="entradaLonga"
+                        IsVisible="False"
+                        Text="{Binding Texto, Source={x:Reference raiz}, Mode=TwoWay}"
+                        Placeholder="{Binding Dica, Source={x:Reference raiz}}"
+                        MaxLength="{Binding TamanhoMaximo, Source={x:Reference raiz}}"
+                        IsEnabled="{Binding Habilitado, Source={x:Reference raiz}}"
+                        FontSize="15"
+                        TextColor="{StaticResource CorTexto}"
+                        PlaceholderColor="{StaticResource CorTextoFraco}"
+                        BackgroundColor="Transparent"
+                        HeightRequest="100" />
+            </Grid>
+        </Border>
+
+    </VerticalStackLayout>
+
+</ContentView>

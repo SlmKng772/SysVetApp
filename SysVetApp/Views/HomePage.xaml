@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SysVetApp.Views.HomePage"
+             Title="Início"
+             BackgroundColor="{StaticResource CorFundo}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="14">
+
+            <Label Text="Sistema Veterinário"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource CorPrimaria}" />
+
+            <Label Text="Selecione uma funcionalidade no menu lateral, na barra inferior, ou nos atalhos abaixo."
+                   FontSize="13"
+                   TextColor="{StaticResource CorTextoMedio}" />
+
+            <!-- ================= Atalhos para as 3 funcionalidades ================= -->
+            <Border Stroke="{StaticResource CorBorda}"
+                    BackgroundColor="{StaticResource CorCard}"
+                    Padding="16">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="Funcionalidades"
+                           FontSize="15"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource CorTexto}" />
+
+                    <Button Text="Espécies"
+                            FontSize="15"
+                            BackgroundColor="{StaticResource CorPrimaria}"
+                            TextColor="White"
+                            CornerRadius="8"
+                            HeightRequest="56"
+                            Clicked="OnEspeciesClicked" />
+
+                    <Button Text="Animais"
+                            FontSize="15"
+                            BackgroundColor="{StaticResource CorPrimaria}"
+                            TextColor="White"
+                            CornerRadius="8"
+                            HeightRequest="56"
+                            Clicked="OnAnimaisClicked" />
+
+                    <Button Text="Clientes"
+                            FontSize="15"
+                            BackgroundColor="{StaticResource CorPrimaria}"
+                            TextColor="White"
+                            CornerRadius="8"
+                            HeightRequest="56"
+                            Clicked="OnClientesClicked" />
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- ================= Ajuda de navegação ================= -->
+            <Border Stroke="{StaticResource CorBorda}"
+                    BackgroundColor="{StaticResource CorCard}"
+                    Padding="16">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="6">
+
+                    <Label Text="Como navegar"
+                           FontSize="15"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource CorTexto}" />
+
+                    <Label Text="•  Menu lateral (Flyout): deslize da borda esquerda ou toque no ícone ☰"
+                           FontSize="12"
+                           TextColor="{StaticResource CorTextoMedio}" />
+
+                    <Label Text="•  TabBar: use os botões na parte inferior da tela"
+                           FontSize="12"
+                           TextColor="{StaticResource CorTextoMedio}" />
+
+                    <Label Text="•  Dentro de cada funcionalidade: Inserir, Alterar e Excluir"
+                           FontSize="12"
+                           TextColor="{StaticResource CorTextoMedio}" />
+
+                </VerticalStackLayout>
+            </Border>
+
+            <Label Text="Sem banco de dados: os registros de exemplo e os que você cadastrar ficam na memória e são perdidos ao fechar o app."
+                   FontSize="11"
+                   TextColor="{StaticResource CorTextoFraco}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,43 @@
+## Arquivos de compilação
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+*.binlog
+
+## Visual Studio / VS Code
+.vs/
+.vscode/
+*.suo
+*.user
+*.userprefs
+*.csproj.user
+
+## .NET
+project.lock.json
+*.nuget.g.props
+*.nuget.g.targets
+
+## Android
+*.apk
+*.aab
+*.keystore
+*.jks
+!debug.keystore
+
+## iOS / MacCatalyst
+*.ipa
+*.dSYM/
+xcuserdata/
+
+## Windows
+AppPackages/
+BundleArtifacts/
+*.appx
+*.appxbundle
+*.msix
+*.msixbundle
+
+## Sistema
+Thumbs.db
+.DS_Store
